@@ -55,3 +55,5 @@ group :test do
 end
 
 gem "standard", "~> 1.42"
+
+gem "inertia_rails", "~> 3.4"
