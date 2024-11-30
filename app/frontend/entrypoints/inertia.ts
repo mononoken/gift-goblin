@@ -1,8 +1,11 @@
-import { createInertiaApp } from '@inertiajs/react'
-import { createElement, ReactNode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createInertiaApp } from "@inertiajs/react";
+import { createElement, ReactNode } from "react";
+import { createRoot } from "react-dom/client";
 
-type ResolvedComponent = { default: ReactNode, layout?: (page: ReactNode) => ReactNode }
+type ResolvedComponent = {
+  default: ReactNode;
+  layout?: (page: ReactNode) => ReactNode;
+};
 
 createInertiaApp({
   // Set default page title
@@ -16,8 +19,10 @@ createInertiaApp({
   // progress: false,
 
   resolve: (name) => {
-    const pages = import.meta.glob<ResolvedComponent>('../pages/**/*.tsx', { eager: true })
-    return pages[`../pages/${name}.tsx`]
+    const pages = import.meta.glob<ResolvedComponent>("../pages/**/*.tsx", {
+      eager: true,
+    });
+    return pages[`../pages/${name}.tsx`];
 
     // To use a default layout, import the Layout component
     // and use the following lines.
@@ -29,8 +34,8 @@ createInertiaApp({
   },
 
   setup({ el, App, props }) {
-    const root = createRoot(el)
+    const root = createRoot(el);
 
-    root.render(createElement(App, props))
+    root.render(createElement(App, props));
   },
-})
+});
