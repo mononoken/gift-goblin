@@ -1,0 +1,10 @@
+*.rb
+
+config/*
+config/environments/*
+config/initializers/*
+config/locales/*
+
+db/*
+db/schema.rb
+db/migrate/*
