@@ -5,7 +5,7 @@ import reactSvg from "/assets/react.svg";
 import inertiaSvg from "/assets/inertia.svg";
 import viteRubySvg from "/assets/vite_ruby.svg";
 
-import cs from "./../pages/inertia_example/InertiaExample.module.css";
+import cs from "./index.module.css";
 
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
