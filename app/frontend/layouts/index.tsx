@@ -5,12 +5,18 @@ import reactSvg from "/assets/react.svg";
 import inertiaSvg from "/assets/inertia.svg";
 import viteRubySvg from "/assets/vite_ruby.svg";
 
-import cs from "./InertiaExample.module.css";
+import cs from "./../pages/inertia_example/InertiaExample.module.css";
 
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
 
-export default function InertiaExample({ name }: { name: string }) {
+export default function Layout({
+  name,
+  children,
+}: {
+  name: string;
+  children: React.ReactNode;
+}) {
   const [count, setCount] = useState(0);
 
   return (
@@ -49,6 +55,7 @@ export default function InertiaExample({ name }: { name: string }) {
         </div>
 
         <h2 className={cs.h2}>Inertia + Vite Ruby + React</h2>
+        {children}
 
         <div className="card">
           <button
