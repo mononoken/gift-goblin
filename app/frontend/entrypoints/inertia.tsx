@@ -2,16 +2,15 @@ import { createInertiaApp } from "@inertiajs/react";
 import { createElement, ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 
+import Layout from "@/layouts";
+
 type ResolvedComponent = {
-  default: ReactNode;
+  default: ResolvedComponent;
   layout?: (page: ReactNode) => ReactNode;
 };
 
 createInertiaApp({
-  // Set default page title
-  // see https://inertia-rails.netlify.app/guide/title-and-meta
-  //
-  // title: title => title ? `${title} - App` : 'App',
+  title: (title) => (title ? `${title} - App` : "App"),
 
   // Disable progress bar
   //
@@ -22,15 +21,10 @@ createInertiaApp({
     const pages = import.meta.glob<ResolvedComponent>("../pages/**/*.tsx", {
       eager: true,
     });
-    return pages[`../pages/${name}.tsx`];
 
-    // To use a default layout, import the Layout component
-    // and use the following lines.
-    // see https://inertia-rails.netlify.app/guide/pages#default-layouts
-    //
-    // const page = pages[`../pages/${name}.tsx`]
-    // page.default.layout ||= (page) => createElement(Layout, null, page)
-    // return page
+    const page = pages[`../pages/${name}.tsx`];
+    page.default.layout ||= (page) => <Layout name="foo">{page}</Layout>;
+    return page;
   },
 
   setup({ el, App, props }) {

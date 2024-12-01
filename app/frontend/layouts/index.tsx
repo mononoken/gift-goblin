@@ -15,7 +15,7 @@ export default function Layout({
   children,
 }: {
   name: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   const [count, setCount] = useState(0);
 
