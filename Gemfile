@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "bootsnap", require: false # Reduces boot times through caching; required in config/boot.rb
-gem "inertia_rails", "~> 3.4"
+gem "inertia_rails", "~> 3.5"
 gem "inertia_rails-contrib", "~> 0.3.0"
 gem "jbuilder" # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "kamal", require: false # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
