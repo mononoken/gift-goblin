@@ -8,6 +8,12 @@ image: mononoken/gift_goblin
 servers:
   web:
     - 64.23.130.117
+  vite_ssr:
+    hosts:
+      - 64.23.130.117
+    cmd: bundle exec vite ssr
+    options:
+      network-alias: vite_ssr
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -36,9 +42,10 @@ env:
   secret:
     - RAILS_MASTER_KEY
   clear:
+    VITE_RUBY_HOST: "vite_ssr"
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
     # When you start using multiple servers, you should split out job processing to a dedicated machine.
-    SOLID_QUEUE_IN_PUMA: true
+    # SOLID_QUEUE_IN_PUMA: true
 
     # Set number of processes dedicated to Solid Queue (default: 1)
     # JOB_CONCURRENCY: 3
@@ -71,7 +78,7 @@ volumes:
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old
 # version inside the asset_path.
-asset_path: /rails/public
+asset_path: /rails/public/vite
 
 # Configure the image builder.
 builder:
