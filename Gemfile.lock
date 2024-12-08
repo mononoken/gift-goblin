@@ -370,6 +370,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  inertia_rails (~> 3.5)
   inertia_rails-contrib (~> 0.3.0)
   jbuilder
   kamal
