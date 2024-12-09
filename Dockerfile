@@ -48,8 +48,7 @@ RUN bundle install && \
 
 # Install node modules
 COPY package.json package-lock.json ./
-# TODO: Remove legacy-peer-deps when inertia supports React 19.0
-RUN npm ci --legacy-peer-deps --omit=dev && \
+RUN npm ci --omit=dev && \
     rm -rf ~/.npm
 
 # Copy application code
